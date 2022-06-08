@@ -1,6 +1,9 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
+//Db connection
+import db from './libs/dbConnect';
+import { employeeRouter } from './routes';
 
 const app: Express = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -9,12 +12,11 @@ dotenv.config();
 
 const port = process.env.PORT;
 
-//Db connection
-import db from './libs/dbConnect';
+
 db.on('error', (error)=> console.error(error));
 db.once('open', () => console.log('Database Connected'));
 
-import { employeeRouter } from './routes';
+
 app.use(employeeRouter);
 
 

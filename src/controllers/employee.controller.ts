@@ -1,49 +1,45 @@
+import express, { Express, Request, Response } from 'express';
 import { employeeService } from '../services/index';
 
 
- class employeeController{
-
-    public employeeAll(){        
-        try {
-            return employeeService.employeeAllView();
-        } catch (error) {
-            return error;
-        }
+export const employeeAll = async (req: Request, res: Response) => {    
+    try {
+        const output = await employeeService.employeeAllView();
+        res.json(output);
+    } catch (error) {
+        res.status(500).json({message: error});
     }
+}
 
-    public employeeView(){
-        try {
-            return employeeService.employeeAllView();
-        } catch (error) {
-            return error;
-        }
+export const employeeInsert = async  (req: Request, res: Response) => {  
+    try {
+        const output = await employeeService.employeeInsert(req.body);
+        res.json(output);
+    } catch (error) {
+        return error;
+    }    
+}
+
+export const employeeView = async (req: Request, res: Response) => {    
+    try {
+        return employeeService.employeeAllView();
+    } catch (error) {
+        return error;
     }
+}
 
-    public employeeInsert(employeeData:any){
-        try {
-            return employeeService.employeeInsert(employeeData);
-        } catch (error) {
-            return error;
-        }
-    }
+export const employeeUpdate = async (req: Request, res: Response) => {    
+    try {
+        return employeeService.employeeInsert(req.body);
+    } catch (error) {
+        return error;
+    }    
+}
 
-    public employeeUpdate(){
-        try {
-            return "";
-        } catch (error) {
-            return error;
-        }
-    }
-
-    public employeeDelete(){
-        try {
-            return "";
-        } catch (error) {
-            return error;
-        }
-    }
-} 
-
-const employee = new employeeController();
-
-export {employee};
+export const employeeDelete = async (req: Request, res: Response) => {    
+    try {
+        return employeeService.employeeInsert(req.body);
+    } catch (error) {
+        return error;
+    }    
+}

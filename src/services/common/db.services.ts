@@ -9,6 +9,16 @@ class dbOperation {
         const employee = model.create(data);
         return employee;
     }
+
+    public findById(model:any,data:any){
+        const employee =  model.findById(data);
+        return employee;
+    }
+
+    public findByUpdate(model:any,data:any){
+        const employee =  model.updateOne(data);
+        return employee;
+    }
 }
 
 const dbService = new dbOperation();

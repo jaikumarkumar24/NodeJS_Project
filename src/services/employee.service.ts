@@ -19,6 +19,22 @@ class employeeOperationService{
             return error;
         }
     }
+
+    public employeeUpdate(employeeData:any){
+        try {
+            return dbService.save(employeeModel,employeeData);
+        } catch (error) {
+            return error;
+        }
+    }
+
+    public employeeDelete(employeeData:any){
+        try {
+            return dbService.save(employeeModel,employeeData);
+        } catch (error) {
+            return error;
+        }
+    }
 }
 
 const employeeService = new employeeOperationService();

@@ -1,41 +1,12 @@
 import express, { Express, Request, Response } from 'express';
-
-import { employee } from '../controllers';
+import  { employeeAll,employeeView,employeeInsert,employeeUpdate,employeeDelete } from '../controllers';
+import { validateFunction } from '../middlewares/validators';
 
 const router = express.Router();
 
-router.get('/employee', (req: Request, res: Response) => {
-    try {
-        return employee.employeeAll();
-    } catch (error) {
-        return error;
-    }
-});
- 
-router.post('/employee/add', (req: Request, res: Response) => {
-    //console.log(req.body);
-    try {
-        return employee.employeeInsert(req.body);
-    } catch (error) {
-        return error;
-    }
-    
-});
-
-router.put('/employee/update', (req: Request, res: Response) => {
-    try {
-        return employee.employeeInsert(req.body);
-    } catch (error) {
-        return error;
-    }
-});
-
-router.delete('/employee/delete', (req: Request, res: Response) => {
-    try {
-        return employee.employeeInsert(req.body);
-    } catch (error) {
-        return error;
-    }
-});
+router.get('/employee', employeeAll);
+router.post('/employee/add',validateFunction('employeeValidatorSchema'), employeeInsert);
+router.put('/employee/update', employeeUpdate);
+router.delete('/employee/delete', employeeDelete);
 
 export { router as employeeRouter };

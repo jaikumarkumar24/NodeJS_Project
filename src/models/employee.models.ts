@@ -3,7 +3,6 @@ import { employeeInterface } from '../interface/employee.interface';
 
 
 const employeeSchema = new Schema({
-    _id:{type:Schema.Types.ObjectId},
     name:String,
     empcode:String,
     designation:String,
