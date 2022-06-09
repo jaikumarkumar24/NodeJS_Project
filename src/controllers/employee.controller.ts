@@ -5,7 +5,7 @@ import { employeeService } from '../services/index';
 export const employeeAll = async (req: Request, res: Response) => {    
     try {
         const output = await employeeService.employeeAllView();
-        res.json(output);
+        return res.status(200).send(output)
     } catch (error) {
         res.status(500).json({message: error});
     }
@@ -14,7 +14,7 @@ export const employeeAll = async (req: Request, res: Response) => {
 export const employeeInsert = async  (req: Request, res: Response) => {  
     try {
         const output = await employeeService.employeeInsert(req.body);
-        res.json(output);
+        return res.status(200).send(output)
     } catch (error) {
         return error;
     }    

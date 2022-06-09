@@ -17,6 +17,7 @@ const validateFunction = function(validator: string) {
             req.body = validated
             next()
         } catch (err) {
+            console.log(err)
             //* Pass err to next
             //! If validation error occurs call next with HTTP 422. Otherwise HTTP 500
             if(err) 

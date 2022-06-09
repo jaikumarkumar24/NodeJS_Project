@@ -21,7 +21,7 @@ app.use(employeeRouter);
 
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
+  res.send('Express + TypeScript Server work');
 });
 
 app.listen(port, () => {

@@ -1,0 +1,16 @@
+export enum MongoDBOps {
+  find = 'find',
+  findOne = 'findOne',
+  count = 'count',
+  countDocuments = 'countDocuments',
+  findOneAndUpdate = 'findOneAndUpdate',
+  findOneAndDelete = 'findOneAndDelete',
+  findOneAndRemove = 'findOneAndRemove',
+  findOneAndReplace = 'findOneAndReplace',
+  remove = 'remove',
+  update = 'update',
+  deleteOne = 'deleteOne',
+  deleteMany = 'deleteMany',
+  save = 'save',
+  aggregate = 'aggregate',
+}
