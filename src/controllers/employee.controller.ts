@@ -16,29 +16,37 @@ export const employeeInsert = async  (req: Request, res: Response) => {
         const output = await employeeService.employeeInsert(req.body);
         return res.status(200).send(output)
     } catch (error) {
-        return error;
+        res.status(500).json({message: error});
     }    
 }
 
-export const employeeView = async (req: Request, res: Response) => {    
+export const employeeById = async (req: Request, res: Response) => {    
     try {
-        return employeeService.employeeAllView();
+        const empId = req.params.id;
+        const output = await employeeService.employeeView(empId);
+        return res.status(200).send(output);
+
     } catch (error) {
-        return error;
+        res.status(500).json({message: error});
     }
 }
 
 export const employeeUpdate = async (req: Request, res: Response) => {    
     try {
-        return employeeService.employeeInsert(req.body);
+        const empId = req.params.id;
+        const empdata = req.body;
+        const output = await employeeService.employeeUpdate(empId,empdata);
+        return res.status(200).send(output);
     } catch (error) {
-        return error;
+        res.status(500).json({message: error});
     }    
 }
 
 export const employeeDelete = async (req: Request, res: Response) => {    
     try {
-        return employeeService.employeeInsert(req.body);
+        const empId = req.params.id;
+        const output = await employeeService.employeeDelete(empId);
+        return res.status(200).send(output);
     } catch (error) {
         return error;
     }    

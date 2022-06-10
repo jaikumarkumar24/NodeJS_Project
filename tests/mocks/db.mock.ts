@@ -1,4 +1,4 @@
-import mockingoose from 'mockingoose';
+const mockingoose = require('mockingoose');
 import { MongoDBOps } from '../constants';
 
 declare type ExpectedReturnType = string | number | boolean | object;

@@ -12,16 +12,13 @@ dotenv.config();
 
 const port = process.env.PORT;
 
-
 db.on('error', (error)=> console.error(error));
 db.once('open', () => console.log('Database Connected'));
 
-
 app.use(employeeRouter);
 
-
 app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server work');
+  res.send('Express + TypeScript Server');
 });
 
 app.listen(port, () => {
